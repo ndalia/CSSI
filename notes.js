@@ -4,14 +4,14 @@ var notes, count = 0;
 function saveNotes() {
     var notesArray = [];
 
-    // for each of the notes add a bespoke note object to the array
+    // for each of the notes add a note object to the array
     notes.find("li > div").each(function (i, e) {
         // save the class attribute of the div, as well as the text for the title and content text areas
-        var colourClass = $(e).attr("class");
+        var colorClass = $(e).attr("class");
         var title = $(e).find("textarea.note-title");
         var content = $(e).find("textarea.note-content");
 
-        notesArray.push({ Index: i, Title: title.val(), Content: content.val(), Class: colourClass });
+        notesArray.push({ Index: i, Title: title.val(), Content: content.val(), Class: colorClass });
     });
 
     // json encode it
@@ -50,9 +50,9 @@ function addNoteEvent(noteElement) {
 			
 //  adds a new note to the 'notes' list
 function addNewNote(className, title, content) {
-	// if class is not specified, use a random colour class
+	// if class is not specified, use a random color class
 	if (!className) {
-		className = "colour";
+		className = "color";
 	}
 				
 	// add a new note to the end of the list
