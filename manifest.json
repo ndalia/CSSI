@@ -1,0 +1,11 @@
+{
+    "name": "Sticky Notes",
+    "version": "1.0",
+    "description": "Notes Chrome Extension",
+    "permissions": ["storage"],
+    "background": {
+        "scripts": ["notesDisplay.js"],
+        "persistent": false
+      },
+    "manifest_version": 2
+  }
