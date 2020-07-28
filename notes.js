@@ -1,87 +1,56 @@
-var STICKIES = (function () {
-    var initStickies = function () {},
-        openStickies = function () {},
-        createSticky = function (data) {},
-        deleteSticky = function (id) {},
-        saveSticky   = function () {},
-        markUnsaved  = function () {};
-         
-    return {
-        open   : openStickies,
-        init   : initStickies
-    };
-}());
+zIndex = 10;
+$('#new').click(function(){
+    $('#notes')
+        .append('\
+            <div class="sticky-note-pre ui-widget-content">\
+                <div class="handle">&nbsp;<div class="close">&times;</div></div>\
+                <div contenteditable class="contents">awesome</div>\
+            </div>\
+         ')
+        .find('.sticky-note-pre')
+            //.position where we want it
+        .end()
+        //.do something else to $('#notes')
+    ;
+    $('.sticky-note-pre')
+        .draggable({
+            handle: '.handle'    
+        })
+        .resizable({
+            resize: function(){
+                var n = $(this);
+                n.find('.contents').css({
+                    width: n.width() - 40,
+                    height: n.height() - 60
+                });
+            }
+        })
+        .bind('click hover focus mousedown', function(){
+            $(this)
+                .css('zIndex', zIndex++)
+                .find('.ui-icon')
+                    .css('zIndex', zIndex++)
+                .end()
+            ;
+        })
+        .find('.close')
+            .click(function(){
+                $(this).parents('.sticky-note').remove();
+            })
+        .end()
+        .dblclick(function(){
+            $(this).remove();
+        })
+        .addClass('sticky-note')
+        .removeClass('sticky-note-pre')
+    ;
+});
 
-var initStickies = function initStickies() {
-    $("<div />", { 
-        text : "+", 
-        "class" : "add-sticky",
-        click : function () { createSticky(); }
-    }).prependTo(document.body);
-    initStickies = null;
-},
-
-openStickies = function openStickies() {
-    initStickies && initStickies();
-    for (var i = 0; i < localStorage.length; i++) {
-        createSticky(JSON.parse(localStorage.getItem(localStorage.key(i))));
-    }
-},
-
-createSticky = function createSticky(data) {
-    data = data || { id : +new Date(), top : "40px", left : "40px", text : "Note Here" }
-     
-    return $("<div />", { 
-        "class" : "sticky",
-        'id' : data.id
-         })
-        .prepend($("<div />", { "class" : "sticky-header"} )
-            .append($("<span />", { 
-                "class" : "status-sticky", 
-                click : saveSticky 
-            }))
-            .append($("<span />", { 
-                "class" : "close-sticky", 
-                text : "trash", 
-                click : function () { deleteSticky($(this).parents(".sticky").attr("id")); }
-            }))
-        )
-        .append($("<div />", { 
-            html : data.text, 
-            contentEditable : true, 
-            "class" : "sticky-content", 
-            keypress : markUnsaved
-        }))
-    .draggable({ 
-        handle : "div.sticky-header", 
-        stack : ".sticky",
-        start : markUnsaved,
-        stop  : saveSticky  
-     })
-    .css({
-        position: "absolute",
-        "top" : data.top,
-        "left": data.left
-    })
-    .focusout(saveSticky)
-    .appendTo(document.body);
-},
-deleteSticky = function deleteSticky(id) {
-    localStorage.removeItem("sticky-" + id);
-    $("#" + id).fadeOut(200, function () { $(this).remove(); });
-},
-saveSticky = function saveSticky() {
-    var that = $(this),  sticky = (that.hasClass("sticky-status") || that.hasClass("sticky-content")) ? that.parents('div.sticky'): that,
-    obj = {
-        id  : sticky.attr("id"),
-        top : sticky.css("top"),
-        left: sticky.css("left"),
-        text: sticky.children(".sticky-content").html()               
-    }
-    localStorage.setItem("sticky-" + obj.id, JSON.stringify(obj));    
-    sticky.find(".sticky-status").text("saved");
-},
-markUnsaved = function markUnsaved() {
-    var that = $(this), sticky = that.hasClass("sticky-content") ? that.parents("div.sticky") : that;
-    sticky.find(".sticky-status").text("unsaved");
-}
+$('#save').click(function(){
+    var notes = [], i, note;
+    $('.sticky-note').each(function(){
+        notes.push($(this).find('.contents').html());
+    });
+    //do something with notes
+    console.log(notes);
+});

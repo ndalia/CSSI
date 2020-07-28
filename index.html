@@ -2,31 +2,16 @@
   <html>
   <head>
       <meta charset='utf-8' />
-      <title>HTML 5 complete</title>
       <link rel="stylesheet" href="main.css" />
-      <link rel="stylesheet" href="stickies.css" />
-      <!--[if IE]>
-      <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-      <![endif]-->
-  </head>
   <body>
-      <article>
-          <header>
-              <h1> Sample Article Title</h1>
-          </header>
-          <p>Lorem ipsum dolor. . . </p>
-          <!-- a few lorem-ipsum paragraphs later . . . -->
-          <footer>
-              <p>Copyright 2010 Andrew Burgess</p>
-          </footer>
-      </article>
  
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/base/jquery-ui.css"></script>
       <script src="json2.js"></script>
       <script src="notes.js"></script>
-      <script>
-		  STICKIES.open();
-      </script>
+	  <button id="new" class="btn">+ New Note</button> 
+	  <button id="save" class="btn primary">Save</button> 
+	  <span>Double-click to close notes</span>
+	  <div id="notes"></div>
   </body>
   </html>
