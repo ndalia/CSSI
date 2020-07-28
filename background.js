@@ -11,4 +11,25 @@ chrome.runtime.onInstalled.addListener(function() {
             actions: [new chrome.declarativeContent.ShowPageAction()]
       }]);
     });
+    var rule1 = {
+        conditions: [
+          new chrome.declarativeContent.PageStateMatcher({
+            pageUrl: { hostEquals: 'www.google.com', schemes: ['https'] },
+            css: ["input[type='password']"]
+          })
+        ],
+        actions: [ new chrome.declarativeContent.ShowPageAction() ]
+      };
+      var rule2 = {
+        conditions: [
+          new chrome.declarativeContent.PageStateMatcher({
+            pageUrl: { hostEquals: 'www.google.com', schemes: ['https'] },
+            css: ["input[type='password']"]
+          }),
+          new chrome.declarativeContent.PageStateMatcher({
+            css: ["video"]
+          })
+        ],
+        actions: [ new chrome.declarativeContent.ShowPageAction() ]
+      };
   });
