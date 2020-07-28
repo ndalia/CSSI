@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
 
     const bg = chrome.extension.getBackgroundPage()
     Object.keys(bg.bears).forEach(function (url) {
@@ -17,4 +17,4 @@ document.addEventListener('DOMContentLoaded', function () {
     
   }, false)
 
- 
+ */
