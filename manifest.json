@@ -1,0 +1,6 @@
+{
+    "name": "Sticky Notes",
+    "version": "1.0",
+    "description": "Notes Chrome Extension",
+    "manifest_version": 2
+  }
