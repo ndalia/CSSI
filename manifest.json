@@ -4,7 +4,7 @@
     "description": "Notes Chrome Extension",
     "permissions": ["storage"],
     "background": {
-        "scripts": ["background.js"],
+        "scripts": ["notesDisplay.js"],
         "persistent": false
       },
     "manifest_version": 2
