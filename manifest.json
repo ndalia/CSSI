@@ -2,5 +2,9 @@
     "name": "Sticky Notes",
     "version": "1.0",
     "description": "Notes Chrome Extension",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+      },
     "manifest_version": 2
   }
