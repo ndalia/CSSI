@@ -10,7 +10,19 @@ body {
 }
 
 button{
-
+	margin-right: 5px;
+	width: 100px;
+	background: #ffffff;
+	border-bottom: #ffffff 1px solid;
+	border-left: #ffffff 1px solid;
+	border-right: #ffffff 1px solid;
+	border-radius: 20px;
+	text-align: center;
+	color: #aaa9a9;
+	padding: 3px;
+	border: 2px solid #c4c4c4;
+	font-size: 12px;
+	font-weight: 800;
 }
 
 #controls img {
