@@ -57,7 +57,7 @@ function addNewNote(className, title, content) {
 				
 	// add a new note to the end of the list
 	notes.append("<li><div class='" + className + "'>" + 
-					"<textarea class='note-title' placeholder='Untitled' maxlength='10'/>" + 
+					"<textarea class='note-title' placeholder='Untitled' maxlength='17'/>" + 
 					"<textarea class='note-content' placeholder='Your content here'/>" + 
 					"<img class='hide' src='images/close.png'/>" + 
 					"</div></li>");
