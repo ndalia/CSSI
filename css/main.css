@@ -13,6 +13,10 @@ body {
 	width: 20px;
 	height: 20px;
 }
+#controls a{
+	color: white;
+}
+
 ul, li {
 	list-style: none;
 }
