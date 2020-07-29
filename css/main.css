@@ -85,4 +85,5 @@ ul li textarea {
 
 ul li div.color {
 	background: #ffffcc;
+	box-shadow: 2px 2px 5px #aaa9a9;
 }
