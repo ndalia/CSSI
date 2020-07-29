@@ -82,7 +82,11 @@ ul li div img {
 	position: absolute; 
 	top: 0; 
 	right: 0;
+	width: 20px;
+	height: 20px;
+	
 }
+
 
 ul li textarea {
 	background: rgba(0, 0, 0, 0); /* transparent background */
