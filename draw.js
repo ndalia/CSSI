@@ -1,3 +1,5 @@
+
+
 function getCurrentTabUrl(callback) {
     let queryInfo = {
         active: true,
@@ -20,8 +22,10 @@ function startDraw() {
 }
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
     getCurrentTabUrl((url) => {
+        const stop = document.querySelector('#stop-button');
         const drawIcon = document.querySelector('#draw-button');
         drawIcon.addEventListener('click', () => {
             startDraw();

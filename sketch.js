@@ -1,70 +1,59 @@
-
-    let canDraw = true;
-    const canvas = document.createElement('canvas');
-    const body = document.body;
-    const html = document.documentElement;
-    const scale = window.devicePixelRatio;
-    let windowWidth = window.innerWidth;
-    let windowHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-
-    let drawConfig = {
-        color: 'black',
-        weight: 4,
-    };
-    
-    console.log(windowWidth);
-    canvas.width = windowWidth * scale;
-    canvas.height = windowHeight * scale;
-
-    Object.assign(canvas.style, {
-        position:"absolute", 
-        zIndex: 1000, 
-        width: windowWidth + 'px',
-        top: '0',
-        left: '0'
-    });
-
-    body.appendChild(canvas);
-    const ctx = canvas.getContext('2d');
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round';
-    ctx.scale(scale, scale)
-    ctx.translate(0.5, 0.5);
-
-    let isDrawing = false;
-    let lastX = 0;
-    let lastY = 0;
-    let direction = true;
-
-    function draw(e) {
-        if (!isDrawing) return;
-        if(canDraw){
-            ctx.strokeStyle = drawConfig.color;
-            ctx.lineWidth = drawConfig.weight;
-            ctx.beginPath();
-            ctx.moveTo(lastX, lastY);
-            ctx.lineTo(e.offsetX, e.offsetY);
-            ctx.stroke();
-            [lastX, lastY] = [e.offsetX, e.offsetY];
-        } 
+let drawConfig = {
+    color: 'black',
+    weight: 4,
+};
+let canDraw = true;
+var s = function(sketch){
+    sketch.setup = function(){
+        document.body.style['userSelect'] = 'none';
+        let h = document.body.clientHeight;
+        let c = sketch.createCanvas(sketch.windowWidth,h);
+        c.position(0,0);
+        c.style('pointer-events', 'none');
+        sketch.clear();
     }
+        
+    sketch.draw = function(){
+        sketch.stroke(drawConfig.color);
+        sketch.strokeWeight(drawConfig.weight);
+        if(sketch.mouseIsPressed && canDraw){
+            sketch.line(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
+        }
+    }
+}
+var myp5 = new p5(s);
 
-    canvas.addEventListener('mousedown', (e) => {
-        isDrawing = true;
-        [lastX, lastY] = [e.offsetX, e.offsetY];
-    });
+
+// /* global p5 */
+
+// let p = new p5(() => {});
+
+
+
+// let priorX, priorY;
+// //TODO: Add variable to start a new game.
+
+// p.setup = function() {
+//     document.body.style['userSelect'] = 'none';
+//     let h = document.body.clientHeight;
+//     let c = p.createCanvas(p.windowWidth,h);
+//     c.position(0,0);
+//     c.style('pointer-events', 'none');
+//     p.clear();
+//     priorX = 0;
+//     priorY = 0;
     
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseup', () => isDrawing = false);
-    canvas.addEventListener('mouseout', () => isDrawing = false);
-    
-    function stop(){
-        console.log(windowWidth);
-        canDraw = false;
-    }
-    function start(){
-        canDraw = true;
-    }
+// }
+
+// p.draw = function () {
+//     p.stroke(drawConfig.color);
+//     p.strokeWeight(drawConfig.weight);
+//     if(p.mouseIsPressed){
+//         p.line(priorX, priorY, p.mouseX, p.mouseY);
+//     }
+//     priorX = p.mouseX;
+//     priorY = p.mouseY;
+// }
 
 
 
