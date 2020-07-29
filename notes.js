@@ -118,13 +118,25 @@ $(document).ready(function () {
         // makeColorBarVisible()
     });
     $("#purple").click(function () {
-        addNewNote(); 
+        addNewNote("purple"); 
         //hex code #dab7ed
     });
-    $("#red").click(function () {
-        //addNewNote("red");
+    $("#coral").click(function () {
+        addNewNote("coral");
+        //hex code f3b49c
     });
-
+    $("#mint").click(function () {
+        addNewNote("mint");
+        //hex code #c3ddcf
+    });  
+    $("#blue").click(function () {
+        addNewNote("blue");
+        //hex code #aac7e6
+    });  
+    $("#yellow").click(function () {
+        addNewNote("yellow");
+        //hex code #fbf29e
+    });
     // add a note to the list if there aren't any
     if (count === 0) {
         $("#btnNew").click();
