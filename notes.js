@@ -114,7 +114,15 @@ $(document).ready(function () {
 
     // clicking the 'New Note' button adds a new note to the list
     $("#btnNew").click(function () {
-        addNewNote();
+        // dont call the function addNewNote(); here
+        // makeColorBarVisible()
+    });
+    $("#purple").click(function () {
+        addNewNote(); 
+        //hex code #dab7ed
+    });
+    $("#red").click(function () {
+        //addNewNote("red");
     });
 
     // add a note to the list if there aren't any
