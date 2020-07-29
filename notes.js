@@ -114,9 +114,29 @@ $(document).ready(function () {
 
     // clicking the 'New Note' button adds a new note to the list
     $("#btnNew").click(function () {
-        addNewNote();
+        // dont call the function addNewNote(); here
+        // makeColorBarVisible()
     });
-
+    $("#purple").click(function () {
+        addNewNote("purple"); 
+        //hex code #dab7ed
+    });
+    $("#coral").click(function () {
+        addNewNote("coral");
+        //hex code f3b49c
+    });
+    $("#mint").click(function () {
+        addNewNote("mint");
+        //hex code #c3ddcf
+    });  
+    $("#blue").click(function () {
+        addNewNote("blue");
+        //hex code #aac7e6
+    });  
+    $("#yellow").click(function () {
+        addNewNote("yellow");
+        //hex code #fbf29e
+    });
     // add a note to the list if there aren't any
     if (count === 0) {
         $("#btnNew").click();
