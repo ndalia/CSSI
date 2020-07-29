@@ -23,11 +23,6 @@ function startDraw() {
 document.addEventListener('DOMContentLoaded', () => {
     getCurrentTabUrl((url) => {
         const drawIcon = document.querySelector('#draw-button');
-        const stopI = document.querySelector('#stop-button');
-        stopI.addEventListener('click', () => {
-            console.log('stop');
-            stop();
-        })
         drawIcon.addEventListener('click', () => {
             startDraw();
         })
