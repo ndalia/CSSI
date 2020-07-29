@@ -1,6 +1,6 @@
 var notes, count = 0;
 let color = "";
-var num = 0;
+
 // save the notes into local storage
 function saveNotes() {
     var notesArray = [];
@@ -129,7 +129,6 @@ $(document).ready(function () {
 
     // load notes from local storage if one's available
     loadNotes();
-
 
     // clicking the 'New Note' button adds a new note to the list
     $("#btnNew").click(function () {
