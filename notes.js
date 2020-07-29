@@ -1,5 +1,6 @@
 var notes, count = 0;
 let color = "";
+var num = 0;
 // save the notes into local storage
 function saveNotes() {
     var notesArray = [];
@@ -50,7 +51,6 @@ function addNoteEvent(noteElement) {
 			
 //  adds a new note to the 'notes' list
 function addNewNote(className, title, content) {
-	// if class is not specified, use a random color class
 	if (!className) {
 		className = color;
 	}
@@ -60,14 +60,15 @@ function addNewNote(className, title, content) {
 					"<textarea class='note-title' placeholder='Untitled' maxlength='17'/>" + 
 					"<textarea class='note-content' placeholder='Your content here'/>" + 
 					"<img class='hide' src='images/delButton5.png'/>" + 
-					"</div></li>");
-				
+					"</div></li>");		
 	// get the new note that's just been added and attach the click event handler to its close button
 	var newNote = notes.find("li:last");
 	newNote.find("img").click(function () {
         // remove the note and save
-	    newNote.remove();
-	    saveNotes();
+        newNote.remove();
+        saveNotes();
+        checkNotes();
+        saveNotes();
 	});
 				
 	// hook up event handlers to show/hide close button as appropriate
@@ -96,13 +97,30 @@ function loadNotes() {
         // passes the stored json back into an array of note objects
         var notesArray = JSON.parse(storedNotes);
         count = notesArray.length;
-
         var i;
         for (i = 0; i < count; i++) {
             var storedNote = notesArray[i];
             addNewNote(storedNote.Class, storedNote.Title, storedNote.Content);
         }
+        if(count == 0){
+            color = "yellow";
+            addNewNote(); 
+        }
     }
+}
+
+function checkNotes(){
+    var storedNotes = localStorage.getItem("notes");
+    if (storedNotes) {
+        // passes the stored json back into an array of note objects
+        var notesArray = JSON.parse(storedNotes);
+        count = notesArray.length;
+        if(count == 0){
+            color = "yellow";
+            addNewNote(); 
+        }
+    }
+
 }
 
 $(document).ready(function () {
@@ -111,6 +129,7 @@ $(document).ready(function () {
 
     // load notes from local storage if one's available
     loadNotes();
+
 
     // clicking the 'New Note' button adds a new note to the list
     $("#btnNew").click(function () {
@@ -142,8 +161,5 @@ $(document).ready(function () {
         addNewNote(); 
         //hex code #fbf29e
     });
-    // add a note to the list if there aren't any
-    if (count === 0) {
-        $("#btnNew").click();
-    }
+
 });
