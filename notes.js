@@ -1,5 +1,5 @@
 var notes, count = 0;
-
+let color = "";
 // save the notes into local storage
 function saveNotes() {
     var notesArray = [];
@@ -52,7 +52,7 @@ function addNoteEvent(noteElement) {
 function addNewNote(className, title, content) {
 	// if class is not specified, use a random color class
 	if (!className) {
-		className = "color";
+		className = color;
 	}
 				
 	// add a new note to the end of the list
@@ -118,23 +118,28 @@ $(document).ready(function () {
         // makeColorBarVisible()
     });
     $("#purple").click(function () {
-        addNewNote("purple"); 
+        color = "purple";
+        addNewNote(); 
         //hex code #dab7ed
     });
     $("#coral").click(function () {
-        addNewNote("coral");
+        color = "coral";
+        addNewNote(); 
         //hex code f3b49c
     });
     $("#mint").click(function () {
-        addNewNote("mint");
+        color = "mint";
+        addNewNote(); 
         //hex code #c3ddcf
     });  
     $("#blue").click(function () {
-        addNewNote("blue");
+        color = "blue";
+        addNewNote(); 
         //hex code #aac7e6
     });  
     $("#yellow").click(function () {
-        addNewNote("yellow");
+        color = "yellow";
+        addNewNote(); 
         //hex code #fbf29e
     });
     // add a note to the list if there aren't any
