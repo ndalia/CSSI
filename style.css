@@ -1,3 +1,22 @@
+button{
+
+}
+
+#draw-button {
+    cursor: pointer;
+    margin-top: 12px;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    padding: 2px 9px;
+    transition: 0.2s ease;
+    outline: none !important;
+}
+#draw-button:hover {
+    background-color: lightgray;
+    color: white;
+}
+
+
 body {
     margin: 10px 15px 10px 15px;
     white-space: nowrap;
@@ -26,19 +45,6 @@ li {
     border-radius: 15px;
     display: inline-block;
     list-style-type: none;
-}
-[data-colour] {
-    border: 2px solid transparent;
-    cursor: pointer;
-}
-[data-colour="red"] {
-    background-color: red;
-}
-[data-colour="blue"] {
-    background-color: blue;
-}
-[data-colour="black"] {
-    background-color: black;
 }
 
 .active {
@@ -69,16 +75,3 @@ input[type="range"]::-webkit-slider-thumb {
     outline: none;
 }
 
-#draw-button {
-    cursor: pointer;
-    margin-top: 12px;
-    border: 1px solid lightgray;
-    border-radius: 30px;
-    padding: 2px 9px;
-    transition: 0.2s ease;
-    outline: none !important;
-}
-#draw-button:hover {
-    background-color: lightgray;
-    color: white;
-}

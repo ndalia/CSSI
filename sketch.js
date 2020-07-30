@@ -8,9 +8,10 @@ var s = function(sketch){
         document.body.style['userSelect'] = 'none';
         let h = document.body.clientHeight;
         let c = sketch.createCanvas(sketch.windowWidth,h);
+        c.background(0,0);
         c.position(0,0);
         c.style('pointer-events', 'none');
-        sketch.clear();
+        //sketch.clear();
     }
         
     sketch.draw = function(){
