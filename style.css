@@ -6,13 +6,13 @@ button {
     padding: 2px 9px;
     transition: 0.2s ease;
     outline: none !important;
-    background:#7f8185;
+    background:#bcb9bd;
     color:#fff;
   }
   
 button:hover {
     background:#fff;
-    color:#7f8185;
+    color:#bcb9bd;
   }
 
 #draw-button {
@@ -23,12 +23,12 @@ button:hover {
     padding: 2px 9px;
     transition: 0.2s ease;
     outline: none !important;
-    background:#7f8185;
+    background:#bcb9bd;
     color:#fff;
 }
 #draw-button:hover {
     background:#fff;
-    color:#7f8185;
+    color:#bcb9bd;
 }
 
 
