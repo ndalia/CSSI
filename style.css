@@ -1,29 +1,34 @@
-button{
+button {
     cursor: pointer;
     margin-top: 12px;
     border: 1px solid lightgray;
-    border-radius: 30px;
+    border-radius: 5px;
     padding: 2px 9px;
     transition: 0.2s ease;
     outline: none !important;
-}
-#button:hover {
-    background-color: lightgray;
-    color: white;
-}
+    background:#7f8185;
+    color:#fff;
+  }
+  
+button:hover {
+    background:#fff;
+    color:#7f8185;
+  }
 
 #draw-button {
     cursor: pointer;
     margin-top: 12px;
     border: 1px solid lightgray;
-    border-radius: 30px;
+    border-radius: 5px;
     padding: 2px 9px;
     transition: 0.2s ease;
     outline: none !important;
+    background:#7f8185;
+    color:#fff;
 }
 #draw-button:hover {
-    background-color: lightgray;
-    color: white;
+    background:#fff;
+    color:#7f8185;
 }
 
 
