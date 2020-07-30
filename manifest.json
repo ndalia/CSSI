@@ -23,7 +23,7 @@
       "matches": [
         "<all_urls>"
       ],
-      "js":["js/p5.js"]
+      "js":["js/p5.js", "screen.js"]
     }],
     "manifest_version": 2
   }
