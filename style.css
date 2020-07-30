@@ -1,5 +1,15 @@
 button{
-
+    cursor: pointer;
+    margin-top: 12px;
+    border: 1px solid lightgray;
+    border-radius: 30px;
+    padding: 2px 9px;
+    transition: 0.2s ease;
+    outline: none !important;
+}
+#button:hover {
+    background-color: lightgray;
+    color: white;
 }
 
 #draw-button {
