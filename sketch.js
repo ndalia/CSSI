@@ -11,7 +11,7 @@ var s = function(sketch){
         c.background(0,0);
         c.position(0,0);
         c.style('pointer-events', 'none');
-        //sketch.clear();
+        sketch.clear();
     }
         
     sketch.draw = function(){

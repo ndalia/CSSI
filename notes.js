@@ -89,6 +89,10 @@ function loadNotes() {
             addNewNote(); 
         }
     }
+    else{
+        color = "yellow";
+        addNewNote(); 
+    }
 }
 
 function checkNotes(){
